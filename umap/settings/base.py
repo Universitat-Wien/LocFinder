@@ -302,16 +302,23 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "handlers": {
-        "console": {
-            "level": "ERROR",
+        'console': {
+            "level": "INFO",
             "filters": None,
-            "class": "logging.StreamHandler",
+            'class': 'logging.StreamHandler',
+        },
+        "file": {
+            "level": "INFO",
+            "filters": None,
+            "class": "logging.FileHandler",
+            "filename": "/var/log/django.log",
         },
     },
     "loggers": {
         "django": {
-            "handlers": ["console"],
-            "level": "ERROR",
+            "handlers": ["console", "file"],
+            "level": "INFO",
+           'propagate': True,
         },
     },
 }

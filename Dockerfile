@@ -8,6 +8,7 @@ RUN apt-get update && \
         sqlite3 \
         libpq-dev \
         gdal-bin \
+        logrotate \
         && \
     apt-get autoremove -y && \
     apt-get clean && \
@@ -31,9 +32,7 @@ RUN apt-get update && \
         zlib1g-dev \
         libfreetype6-dev \
         liblcms2-dev \
-        libwebp-dev \
-        iputils-ping \
-        netcat-traditional
+        libwebp-dev
 
 RUN python -m venv /venv
 
@@ -47,13 +46,15 @@ FROM common
 
 COPY --from=build /srv/umap/docker/ /srv/umap/docker/
 COPY --from=build /venv/ /venv/
+COPY umaplogrotate /etc/logrotate.d/umaplogrotate
 
 WORKDIR /srv/umap
 
 RUN mkdir -p /srv/umap/uploads
-
 RUN mkdir -p /srv/umap/static
 RUN chmod -R 0070 /srv/umap/
+RUN chmod -R 777 /var/log/
+RUN chmod -R 777 /var/lib/logrotate/
 
 ENV PYTHONUNBUFFERED=1 \
     PORT=8000 \
