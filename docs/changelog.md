@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.6.3u6 - 2025-08-01
+
+* Adjusted Logging settings in Postgresql and UMap Pods (now logging to Files)
+* Added logrotate to Umap Pods and added logrotate config file (umaplogrotate)
+
 ## 2.6.3u5 - 2025-03-20
 
 * Added autofocus on enter functionality to Data Browser search field - adjustSearchFieldEvents() - in univieadj.js
