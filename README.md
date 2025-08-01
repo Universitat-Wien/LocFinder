@@ -1,3 +1,7 @@
+# Universität Wien LocFinder
+LocFinder is an adjusted version of uMap (see below) for the University of Vienna.
+
+This is a Fork of
 # uMap project
 
 uMap lets you create maps with OpenStreetMap layers in a minute and embed them in your site.
