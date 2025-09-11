@@ -1,6 +1,6 @@
 /var/log/*.log {
   copytruncate
-  daily
+  size 10M
   rotate 5
   compress
   delaycompress
