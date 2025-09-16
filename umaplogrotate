@@ -6,4 +6,10 @@
   delaycompress
   missingok
   notifempty
+  sharedscripts
+    postrotate
+        # delete logs older than 30 days
+        find /var/log/*.log.* -type f -mtime +30 -exec rm {} \;
+    endscript
+
 }
